@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class WalkController extends Controller
 {
+    public function index(Request $request) {
+        $walks = Walk::all()->sortBy('date');
+        return view('index', [
+            'walks' => $walks,
+            'total' => $walks->sum('distance')
+        ]);
+    }
+
     public function store(Request $request) {
         Walk::create([
             "distance" => $request->distance,

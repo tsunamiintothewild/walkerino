@@ -9,5 +9,7 @@ class Walk extends Model
 {
     use HasFactory;
 
+    public $casts = ['date' => 'datetime'];
+
     public $fillable = ['distance', 'date'];
 }

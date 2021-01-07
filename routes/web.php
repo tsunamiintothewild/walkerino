@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [WalkController::class, "index"]);
 
 Route::post('/walks', [WalkController::class, "store"]);
